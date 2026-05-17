@@ -55,9 +55,6 @@ model User {
   @@index([role])
   @@map("users")
 
-
-
-
 }
 
 model Category {
@@ -74,6 +71,9 @@ model Category {
   // Relations
   products Product[]
 
+  @@index([name])
+  @@index([slug])
+  @@index([isActive])
   @@map("categories")
 }
 
@@ -131,7 +131,9 @@ model CartItem {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
+  @@unique([cartId, productId])
+  @@index([cartId])
+  @@index([productId])
   @@map("cart_items")
 }
 
@@ -191,6 +193,8 @@ model Payment {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
+ @@index([userId])
+  @@index([orderId])
+  @@index([transactionId])
   @@map("payments")
 }
