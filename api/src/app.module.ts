@@ -5,7 +5,10 @@ import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
-  imports: [PrismaModule, AuthModule],
+  imports: [PrismaModule, AuthModule,ConfigModule.forRoot({
+    isGlobal:true,
+    envFilePath:'.env',
+  }),],
   controllers: [AppController],
   providers: [AppService],
 })

@@ -37,14 +37,7 @@ async cleanDatabase() {
              return (this[modelKey] as any).deleteMany();
         }
     }));
-    // return this.$transaction([
-    //     this.cartItem.deleteMany(),
-    //     this.cart.deleteMany(),
-    //     this.orderItem.deleteMany(),
-    //     this.order.deleteMany(),
-    //     this.payment.deleteMany(),
-    //     this.user.deleteMany(),
-    // ])
+    
 }
 
 }
